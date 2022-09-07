@@ -18,7 +18,9 @@ Select employees.FirstName, employees.LastName, sum(sales.Quantity)
 FROM employees
 INNER JOIN sales 
 ON employees.EmployeeID= sales.EmployeeID
-GROUP BY employees.EmployeeID;
+GROUP BY employees.EmployeeID
+Order by sum(sales.Quantity) DESC
+LIMIT 5;
 
 
 
@@ -26,8 +28,8 @@ GROUP BY employees.EmployeeID;
 SELECT departments.name, categories.name
 FROM departments
 INNER JOIN categories 
-ON departments.DepartmentID = categories.CategoryID
-WHERE categories.Name = 'appliances' OR categories.Name= 'games';
+ON departments.DepartmentID = categories.DepartmentID
+WHERE categories.Name = 'Appliances' OR categories.Name= 'Games';
 
 
 /* joins: find the product name, total # sold, and total price sold,
